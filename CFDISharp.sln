@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFDISharp.Winforms", "CFDISharp.Winforms\CFDISharp.Winforms.csproj", "{7ACF5DB0-1A3E-4616-ADD6-20C8EA2E1D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFDISharp.CoreLib", "CFDISharp.CoreLib\CFDISharp.CoreLib.csproj", "{E8F45338-6A8C-4E91-951F-45FF2F039E60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ACF5DB0-1A3E-4616-ADD6-20C8EA2E1D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ACF5DB0-1A3E-4616-ADD6-20C8EA2E1D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ACF5DB0-1A3E-4616-ADD6-20C8EA2E1D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ACF5DB0-1A3E-4616-ADD6-20C8EA2E1D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F45338-6A8C-4E91-951F-45FF2F039E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F45338-6A8C-4E91-951F-45FF2F039E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F45338-6A8C-4E91-951F-45FF2F039E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F45338-6A8C-4E91-951F-45FF2F039E60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC01D60D-FCC2-4E24-BA6C-0F1D3560E347}
+	EndGlobalSection
+EndGlobal
