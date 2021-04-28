@@ -1,9 +1,23 @@
-﻿using Newtonsoft.Json;
+﻿//*********************************************************************************
+// <Author>
+//     Jesús Mendoza Jaurez. 
+//     mendoza.git@gmail.com
+//
+//     Los cambios en este archivo podrían causar un comportamiento incorrecto.
+//     Este código no ofrece ningún tipo de garantía, se generó para ayudar a la 
+//     Comunidad open source, siéntanse libre de utilizarlo, sin ninguna garantía.
+//     Nota: Mantenga este comentario para respetar al autor.
+// </Author>
+//*********************************************************************************
+
+using System;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CFDISharp.CoreLib.Invoicing.Base
 {
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/cfd/3")]
+    [Serializable()]
+    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/cfd/3")]
    
     public partial class ComprobanteReceptor
     {
@@ -20,7 +34,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         private string usoCFDIField;
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string Rfc
         {
             get
@@ -34,7 +48,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string Nombre
         {
             get
@@ -48,7 +62,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string ResidenciaFiscal
         {
             get
@@ -62,7 +76,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnore()]
         public bool ResidenciaFiscalSpecified
         {
             get
@@ -76,7 +90,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string NumRegIdTrib
         {
             get
@@ -90,7 +104,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string UsoCFDI
         {
             get

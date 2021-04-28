@@ -1,10 +1,24 @@
-﻿using Newtonsoft.Json;
+﻿//*********************************************************************************
+// <Author>
+//     Jesús Mendoza Jaurez. 
+//     mendoza.git@gmail.com
+//
+//     Los cambios en este archivo podrían causar un comportamiento incorrecto.
+//     Este código no ofrece ningún tipo de garantía, se generó para ayudar a la 
+//     Comunidad open source, siéntanse libre de utilizarlo, sin ninguna garantía.
+//     Nota: Mantenga este comentario para respetar al autor.
+// </Author>
+//*********************************************************************************
+
+using System;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CFDISharp.CoreLib.Invoicing.Base
 {
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/cfd/3")]
-    
+    [Serializable()]
+    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/cfd/3")]
+
     public partial class ComprobanteConceptoParte
     {
 
@@ -29,7 +43,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         private bool importeFieldSpecified;
 
 
-        [System.Xml.Serialization.XmlElementAttribute("InformacionAduanera")]
+        [XmlElement("InformacionAduanera")]
         public ComprobanteConceptoParteInformacionAduanera[] InformacionAduanera
         {
             get
@@ -43,7 +57,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string ClaveProdServ
         {
             get
@@ -57,7 +71,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string NoIdentificacion
         {
             get
@@ -71,7 +85,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public decimal Cantidad
         {
             get
@@ -85,7 +99,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string Unidad
         {
             get
@@ -99,7 +113,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string Descripcion
         {
             get
@@ -113,7 +127,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public decimal ValorUnitario
         {
             get
@@ -127,7 +141,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnore()]
         public bool ValorUnitarioSpecified
         {
             get
@@ -141,7 +155,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public decimal Importe
         {
             get
@@ -155,7 +169,7 @@ namespace CFDISharp.CoreLib.Invoicing.Base
         }
 
 
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnore()]
         public bool ImporteSpecified
         {
             get
