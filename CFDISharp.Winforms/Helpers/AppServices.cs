@@ -6,47 +6,47 @@ using System.IO;
 namespace CFDISharp.Winforms.Helpers
 {
     public static class AppServices
-	{
+    {
 
-		#region Properties
+        #region Properties
 
-		public static AppSecret AppSecret { get; set; }
-		public static AppSetting AppSetting { get; set; }
-		public static bool BoolValue { get; set; }
-		#endregion
+        public static AppSecret AppSecret { get; set; }
+        public static AppSetting AppSetting { get; set; }
 
-
-		#region Collections
+        #endregion
 
 
-
-		public static List<AppSecret> AppSecrets { get; set; } = new List<AppSecret>();
-		public static List<AppSetting> AppSettings { get; set; } = new List<AppSetting>();
-		
-
-
-		#endregion
+        #region Collections
 
 
 
-		#region Methods
-		public static string SerializeToJsonFile<T>(T t, string jsonPanth)
-		{
-
-			File.WriteAllText(jsonPanth, JsonConvert.SerializeObject(t));
-			return File.ReadAllText(jsonPanth);
-		}
-
-		public static T DeserializeFromJsonFile<T>(string jsonPanth)
-		{
-			return JsonConvert.DeserializeObject<T>(File.ReadAllText(jsonPanth));
-		}
+        public static List<AppSecret> AppSecrets { get; set; } = new List<AppSecret>();
+        public static List<AppSetting> AppSettings { get; set; } = new List<AppSetting>();
 
 
-		
 
-		#endregion
+        #endregion
 
 
-	}
+
+        #region Methods
+        public static string SerializeToJsonFile<T>(T t, string jsonPanth)
+        {
+
+            File.WriteAllText(jsonPanth, JsonConvert.SerializeObject(t));
+            return File.ReadAllText(jsonPanth);
+        }
+
+        public static T DeserializeFromJsonFile<T>(string jsonPanth)
+        {
+            return JsonConvert.DeserializeObject<T>(File.ReadAllText(jsonPanth));
+        }
+
+
+
+
+        #endregion
+
+
+    }
 }

@@ -18,5 +18,30 @@ namespace CFDISharp.Winforms
 
 
         }
+
+        private void BtnFactura_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnNC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCompInd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCompGrup_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -44,6 +44,7 @@ namespace CFDISharp.Winforms
             this.BtnFactura.TabIndex = 0;
             this.BtnFactura.Text = "GENERAR Y TIMBRAR FACTURA";
             this.BtnFactura.UseVisualStyleBackColor = true;
+            this.BtnFactura.Click += new System.EventHandler(this.BtnFactura_Click);
             // 
             // BtnNC
             // 
@@ -53,6 +54,7 @@ namespace CFDISharp.Winforms
             this.BtnNC.TabIndex = 1;
             this.BtnNC.Text = "GENERAR Y TIMBRAR NOTA DE CREDITO";
             this.BtnNC.UseVisualStyleBackColor = true;
+            this.BtnNC.Click += new System.EventHandler(this.BtnNC_Click);
             // 
             // BtnCompInd
             // 
@@ -62,6 +64,7 @@ namespace CFDISharp.Winforms
             this.BtnCompInd.TabIndex = 2;
             this.BtnCompInd.Text = "GENERAR Y TIMBRAR COMPLEMENTO PAGO INDIVIDUAL";
             this.BtnCompInd.UseVisualStyleBackColor = true;
+            this.BtnCompInd.Click += new System.EventHandler(this.BtnCompInd_Click);
             // 
             // BtnCancelar
             // 
@@ -71,6 +74,7 @@ namespace CFDISharp.Winforms
             this.BtnCancelar.TabIndex = 3;
             this.BtnCancelar.Text = "CANCELAR CUALQUIER TIPO DE  FACTURA";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnCompGrup
             // 
@@ -80,6 +84,7 @@ namespace CFDISharp.Winforms
             this.BtnCompGrup.TabIndex = 4;
             this.BtnCompGrup.Text = "GENERAR Y TIMBRAR COMPLEMENTO PAGO GLOBAL";
             this.BtnCompGrup.UseVisualStyleBackColor = true;
+            this.BtnCompGrup.Click += new System.EventHandler(this.BtnCompGrup_Click);
             // 
             // Form1
             // 

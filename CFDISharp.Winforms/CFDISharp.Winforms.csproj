@@ -178,6 +178,9 @@
     <Compile Include="Helpers\AppServices.cs" />
     <Compile Include="Helpers\DbContextOptionsFactory.cs" />
     <Compile Include="Helpers\Startup.cs" />
+    <Compile Include="Helpers\WSHerlper.cs" />
+    <Compile Include="Helpers\WSCancelationResponse.cs" />
+    <Compile Include="Helpers\WSResponse.cs" />
     <Compile Include="Migrations\20210429032502_Initialdb.cs" />
     <Compile Include="Migrations\20210429032502_Initialdb.designer.cs">
       <DependentUpon>20210429032502_Initialdb.cs</DependentUpon>
@@ -224,7 +227,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CFDISharp.CoreLib\CFDISharp.CoreLib.csproj">
+      <Project>{e8f45338-6a8c-4e91-951f-45ff2f039e60}</Project>
+      <Name>CFDISharp.CoreLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
