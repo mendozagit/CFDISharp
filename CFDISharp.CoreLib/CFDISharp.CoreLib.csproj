@@ -41,6 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Complements\Payments\Class1.cs" />
+    <Compile Include="Complements\Payments\Pagos.cs" />
+    <Compile Include="Complements\Payments\PagosPago.cs" />
+    <Compile Include="Complements\Payments\PagosPagoDoctoRelacionado.cs" />
+    <Compile Include="Complements\Payments\PagosPagoImpuestos.cs" />
+    <Compile Include="Complements\Payments\PagosPagoImpuestosRetencion.cs" />
+    <Compile Include="Complements\Payments\PagosPagoImpuestosTraslado.cs" />
+    <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\Utf8StringWriter.cs" />
+    <Compile Include="Helpers\XmlExtensions.cs" />
     <Compile Include="Invoicing\Base\Comprobante.cs" />
     <Compile Include="Invoicing\Base\ComprobanteAddenda.cs" />
     <Compile Include="Invoicing\Base\ComprobanteCfdiRelacionados.cs" />
@@ -61,11 +71,14 @@
     <Compile Include="Invoicing\Base\ComprobanteImpuestosTraslado.cs" />
     <Compile Include="Invoicing\Base\ComprobanteReceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CancelationService.cs" />
+    <Compile Include="Services\InvoiceService.cs" />
+    <Compile Include="Services\PaymentService.cs" />
+    <Compile Include="Services\PayrollService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Complements\Advances\" />
     <Folder Include="Complements\LocalTaxes\" />
-    <Folder Include="Complements\Payments\" />
     <Folder Include="Complements\Payroll\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

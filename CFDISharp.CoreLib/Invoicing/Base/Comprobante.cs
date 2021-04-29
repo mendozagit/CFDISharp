@@ -18,7 +18,7 @@ using CFDISharp.CoreLib.Invoicing.Base;
 
 namespace CFDISharp.CoreLib.Invoicing.Base
 {
-    [System.SerializableAttribute()]
+    [Serializable()]
     [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/cfd/3")]
     [XmlRoot(Namespace = "http://www.sat.gob.mx/cfd/3", IsNullable = false)]
 
