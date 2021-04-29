@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,9 +50,10 @@
     <Compile Include="Complements\Payments\PagosPagoImpuestos.cs" />
     <Compile Include="Complements\Payments\PagosPagoImpuestosRetencion.cs" />
     <Compile Include="Complements\Payments\PagosPagoImpuestosTraslado.cs" />
+    <Compile Include="Helpers\CFDIHelper.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\Utf8StringWriter.cs" />
-    <Compile Include="Helpers\XmlExtensions.cs" />
+    <Compile Include="Helpers\CFDIExtensions.cs" />
     <Compile Include="Invoicing\Base\Comprobante.cs" />
     <Compile Include="Invoicing\Base\ComprobanteAddenda.cs" />
     <Compile Include="Invoicing\Base\ComprobanteCfdiRelacionados.cs" />
@@ -79,6 +83,9 @@
     <Folder Include="Complements\Advances\" />
     <Folder Include="Complements\LocalTaxes\" />
     <Folder Include="Complements\Payroll\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
