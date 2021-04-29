@@ -1,11 +1,14 @@
-﻿namespace CFDISharp.CoreLib.Complements.Payments
+﻿using System;
+using System.Xml.Serialization;
+
+namespace CFDISharp.CoreLib.Complements.Payments
 {
     
     
     [Serializable()]
     
     
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/Pagos")]
+    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/Pagos")]
     public partial class PagosPagoImpuestosRetencion
     {
 
@@ -14,7 +17,7 @@
         private decimal importeField;
 
         
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string Impuesto
         {
             get
@@ -28,7 +31,7 @@
         }
 
         
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public decimal Importe
         {
             get

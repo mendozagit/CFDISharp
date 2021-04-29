@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Complements\Payments\Class1.cs" />
     <Compile Include="Complements\Payments\Pagos.cs" />
     <Compile Include="Complements\Payments\PagosPago.cs" />
     <Compile Include="Complements\Payments\PagosPagoDoctoRelacionado.cs" />

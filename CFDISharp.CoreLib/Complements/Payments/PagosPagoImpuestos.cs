@@ -1,11 +1,12 @@
-﻿namespace CFDISharp.CoreLib.Complements.Payments
+﻿using System;
+using System.Xml.Serialization;
+
+namespace CFDISharp.CoreLib.Complements.Payments
 {
     
     
     [Serializable()]
-    
-    
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/Pagos")]
+    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/Pagos")]
     public partial class PagosPagoImpuestos
     {
 
@@ -22,7 +23,7 @@
         private bool totalImpuestosTrasladadosFieldSpecified;
 
         
-        [System.Xml.Serialization.XmlArrayItemAttribute("Retencion", IsNullable = false)]
+        [XmlArrayItem("Retencion", IsNullable = false)]
         public PagosPagoImpuestosRetencion[] Retenciones
         {
             get
@@ -36,7 +37,7 @@
         }
 
         
-        [System.Xml.Serialization.XmlArrayItemAttribute("Traslado", IsNullable = false)]
+        [XmlArrayItem("Traslado", IsNullable = false)]
         public PagosPagoImpuestosTraslado[] Traslados
         {
             get
@@ -50,7 +51,7 @@
         }
 
         
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public decimal TotalImpuestosRetenidos
         {
             get
@@ -64,7 +65,7 @@
         }
 
         
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnore()]
         public bool TotalImpuestosRetenidosSpecified
         {
             get
@@ -78,7 +79,7 @@
         }
 
         
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public decimal TotalImpuestosTrasladados
         {
             get
@@ -92,7 +93,7 @@
         }
 
         
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnore()]
         public bool TotalImpuestosTrasladadosSpecified
         {
             get

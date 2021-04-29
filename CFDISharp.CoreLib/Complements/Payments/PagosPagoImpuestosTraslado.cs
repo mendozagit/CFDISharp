@@ -1,9 +1,12 @@
-﻿namespace CFDISharp.CoreLib.Complements.Payments
+﻿using System;
+using System.Xml.Serialization;
+
+namespace CFDISharp.CoreLib.Complements.Payments
 {
     
 
     [Serializable()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/Pagos")]
+    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/Pagos")]
     public partial class PagosPagoImpuestosTraslado
     {
 
@@ -16,7 +19,7 @@
         private decimal importeField;
 
         
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string Impuesto
         {
             get
@@ -30,7 +33,7 @@
         }
 
         
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string TipoFactor
         {
             get
@@ -44,7 +47,7 @@
         }
 
         
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public decimal TasaOCuota
         {
             get
@@ -58,7 +61,7 @@
         }
 
         
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public decimal Importe
         {
             get
