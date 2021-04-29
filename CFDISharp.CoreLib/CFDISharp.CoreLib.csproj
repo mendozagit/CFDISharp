@@ -74,7 +74,6 @@
     <Compile Include="Invoicing\Base\ComprobanteImpuestosTraslado.cs" />
     <Compile Include="Invoicing\Base\ComprobanteReceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\CancelationService.cs" />
     <Compile Include="Services\InvoiceService.cs" />
     <Compile Include="Services\PaymentService.cs" />
     <Compile Include="Services\PayrollService.cs" />

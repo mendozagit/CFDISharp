@@ -12,6 +12,7 @@
 //*********************************************************************************
 
 
+using System;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using CFDISharp.CoreLib.Invoicing.Base;
