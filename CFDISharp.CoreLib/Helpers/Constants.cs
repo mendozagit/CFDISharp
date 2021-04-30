@@ -17,8 +17,8 @@ namespace CFDISharp.CoreLib.Helpers
         public static string NC = "E";
         public static string PAGOS = "P";
 
-        public static string WS_TOKEN = "YourWebServiceToken";
-        public static string WS_ENDPOINT = "YourWebServiceEndPoint";
+        public static string WS_TEST_TOKEN = "YourWebServiceToken";
+        public static string WS_TEST_ENDPOINT = "YourWebServiceEndPoint";
         public static string WS_TEST_USER = "YourWebServiceUserName";
         public static string WS_TEST_PASS = "YourWebServicePassword";
 

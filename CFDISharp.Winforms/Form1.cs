@@ -188,7 +188,7 @@ namespace CFDISharp.Winforms
 
                 var mxCertificate = new MxCertificate(certificatedb);
                 var mxPrivateKey = new MxPrivateKey(privateKeydb);
-                var password = cFDIHelper.DecodeFromBase64(passworddb.Base64File);
+                var password = passworddb.Base64File.DecodeFromBase64();
 
 
                 cFDIHelper.CertificateBytes = mxCertificate.CertificateBytes();
@@ -293,7 +293,31 @@ namespace CFDISharp.Winforms
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
+            Cancelar();
+        }
+        private void Cancelar()
+        {
+            try
+            {
+                var certificatedb = context.SatFiles.FirstOrDefault(x => x.Type.ToLower().Equals("cer"));
+                var privateKeydb = context.SatFiles.FirstOrDefault(x => x.Type.ToLower().Equals("key"));
+                var passworddb = context.SatFiles.FirstOrDefault(x => x.Type.ToLower().Equals("pass"));
 
+                var mxCertificate = new MxCertificate(certificatedb);
+                var mxPrivateKey = new MxPrivateKey(privateKeydb);
+                var password = passworddb.Base64File.DecodeFromBase64();
+
+                var response = wsHelperTest.Cancel(certificatedb.Base64File,
+                                                   privateKeydb.Base64File,
+                                                   "XIA190128J61", password, "d2a33c40-e43c-4b7c-bd34-b1c53aedc217");
+                MessageBox.Show(response.Status);
+
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         private void BtnCompInd_Click(object sender, EventArgs e)

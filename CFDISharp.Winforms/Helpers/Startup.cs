@@ -81,10 +81,10 @@ namespace CFDISharp.Winforms.Helpers
         }
         private static void ConfigureWS()
         {
-            Constants.WS_ENDPOINT = AppServices.GetAppSettingValueByKey("WsEndPoint");
-            Constants.WS_TOKEN = AppServices.GetAppSettingValueByKey("WsToken");
-            Constants.WS_TEST_USER = AppServices.GetAppSettingValueByKey("WsUser");
-            Constants.WS_TEST_PASS = AppServices.GetAppSettingValueByKey("WsPassword");
+            Constants.WS_TEST_ENDPOINT = AppServices.GetAppSettingValueByKey("WsTestEndPoint");
+            Constants.WS_TEST_TOKEN = AppServices.GetAppSettingValueByKey("WsTestToken");
+            Constants.WS_TEST_USER = AppServices.GetAppSettingValueByKey("WsTestUser");
+            Constants.WS_TEST_PASS = AppServices.GetAppSettingValueByKey("WsTestPassword");
 
 
             var path = Path.Combine(AppServices.GetAppSettingValueByKey("Xslt_Path"),

@@ -19,9 +19,10 @@ namespace CFDISharp.Winforms.Helpers
 
         public WSHelperTest()
         {
-            transmitRequest = new Stamp(Constants.WS_ENDPOINT, Constants.WS_TOKEN);
-            cancelationRequest = new Cancelation(Constants.WS_ENDPOINT, Constants.WS_TEST_USER, Constants.WS_TEST_PASS);
+            transmitRequest = new Stamp(Constants.WS_TEST_ENDPOINT, Constants.WS_TEST_TOKEN);
+            cancelationRequest = new Cancelation(Constants.WS_TEST_ENDPOINT, Constants.WS_TEST_USER, Constants.WS_TEST_PASS);
 
+          
         }
 
 
@@ -46,6 +47,8 @@ namespace CFDISharp.Winforms.Helpers
                      plainPrivateKeyPass,
                      uuidToCancel);
 
+
+            
 
             return new WSCancelationResponse
             {
