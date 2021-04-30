@@ -14,7 +14,7 @@ namespace CFDISharp.Winforms.Helpers
         public AppdbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppdbContext>();
-            var s = @"Server=.\SQLEXPRESS;Database=cfdidb;Trusted_Connection=True;";
+            var s = @"Server=.\SQLEXPRESS;Database=CDFISharpdb;Trusted_Connection=True;";
             optionsBuilder.UseSqlServer(s);
 
             return new AppdbContext(optionsBuilder.Options);

@@ -185,9 +185,9 @@
     <Compile Include="Helpers\WSHelperTest.cs" />
     <Compile Include="Helpers\WSCancelationResponse.cs" />
     <Compile Include="Helpers\WSResponse.cs" />
-    <Compile Include="Migrations\20210429032502_Initialdb.cs" />
-    <Compile Include="Migrations\20210429032502_Initialdb.designer.cs">
-      <DependentUpon>20210429032502_Initialdb.cs</DependentUpon>
+    <Compile Include="Migrations\20210430120654_InitialCDFISharp.cs" />
+    <Compile Include="Migrations\20210430120654_InitialCDFISharp.designer.cs">
+      <DependentUpon>20210430120654_InitialCDFISharp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppdbContextModelSnapshot.cs" />
     <Compile Include="Models\AppdbContext.cs" />

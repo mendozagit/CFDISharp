@@ -97,6 +97,7 @@ namespace CFDISharp.Winforms
             this.Controls.Add(this.BtnNC);
             this.Controls.Add(this.BtnFactura);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Demo";
             this.ResumeLayout(false);
 
