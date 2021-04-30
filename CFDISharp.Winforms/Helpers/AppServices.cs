@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace CFDISharp.Winforms.Helpers
 {
@@ -42,8 +43,14 @@ namespace CFDISharp.Winforms.Helpers
             return JsonConvert.DeserializeObject<T>(File.ReadAllText(jsonPanth));
         }
 
-
-
+        public static AppSetting GetAppSettingByKey(string key)
+        {
+            return AppSettings.FirstOrDefault(x => x.Key.ToUpper().Equals(key.ToUpper()));
+        }
+        public static string GetAppSettingValueByKey(string key)
+        {
+            return AppSettings.FirstOrDefault(x => x.Key.ToUpper().Equals(key.ToUpper()))?.Value;
+        }
 
         #endregion
 

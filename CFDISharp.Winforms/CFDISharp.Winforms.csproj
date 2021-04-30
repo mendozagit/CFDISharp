@@ -178,7 +178,7 @@
     <Compile Include="Helpers\AppServices.cs" />
     <Compile Include="Helpers\DbContextOptionsFactory.cs" />
     <Compile Include="Helpers\Startup.cs" />
-    <Compile Include="Helpers\WSHerlper.cs" />
+    <Compile Include="Helpers\WSHelperTest.cs" />
     <Compile Include="Helpers\WSCancelationResponse.cs" />
     <Compile Include="Helpers\WSResponse.cs" />
     <Compile Include="Migrations\20210429032502_Initialdb.cs" />

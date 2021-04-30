@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CFDISharp.CoreLib.Helpers;
 using CFDISharp.Winforms.Models;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace CFDISharp.Winforms.Helpers
             {
                 ConfigureAppSecrets();
                 ConfigureContainer();
+                ConfigureWS();
                 //RunMigrations();
 
             }
@@ -69,6 +71,12 @@ namespace CFDISharp.Winforms.Helpers
                 service.Migrate();
             }
         }
-
+        private static void ConfigureWS()
+        {
+            Constants.WS_ENDPOINT = AppServices.GetAppSettingValueByKey("WsEndPoint");
+            Constants.WS_TOKEN = AppServices.GetAppSettingValueByKey("WsToken");
+            Constants.WS_TEST_USER = AppServices.GetAppSettingValueByKey("WsUser");
+            Constants.WS_TEST_PASS = AppServices.GetAppSettingValueByKey("WsPassword");
+        }
     }
 }
