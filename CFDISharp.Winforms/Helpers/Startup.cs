@@ -1,8 +1,10 @@
 ﻿using Autofac;
 using CFDISharp.CoreLib.Helpers;
+using CFDISharp.CoreLib.Services;
 using CFDISharp.Winforms.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +20,8 @@ namespace CFDISharp.Winforms.Helpers
             try
             {
                 ConfigureAppSecrets();
-                ConfigureContainer();
                 ConfigureWS();
+                ConfigureContainer();
                 //RunMigrations();
 
             }
@@ -60,6 +62,12 @@ namespace CFDISharp.Winforms.Helpers
 
             // Register individual components
             builder.RegisterType<MigrationService>().As<IMigrationService>().SingleInstance();
+            builder.RegisterType<WSHelperTest>().As<IWSHelperTest>().SingleInstance();
+            builder.RegisterType<PaymentService>().As<IPaymentService>().SingleInstance();
+            builder.RegisterType<InvoiceService>().As<IInvoiceService>().SingleInstance();
+            builder.RegisterType<CFDIHelper>().As<ICFDIHelper>().SingleInstance();
+            builder.RegisterType<WSHelperTest>().As<IWSHelperTest>().SingleInstance();
+            builder.RegisterType<Form1>().As<Form1>().SingleInstance();
 
             Program.Container = builder.Build();
         }
@@ -77,6 +85,11 @@ namespace CFDISharp.Winforms.Helpers
             Constants.WS_TOKEN = AppServices.GetAppSettingValueByKey("WsToken");
             Constants.WS_TEST_USER = AppServices.GetAppSettingValueByKey("WsUser");
             Constants.WS_TEST_PASS = AppServices.GetAppSettingValueByKey("WsPassword");
+
+
+            var path = Path.Combine(AppServices.GetAppSettingValueByKey("Xslt_Path"),
+                                    AppServices.GetAppSettingValueByKey("Xslt_Name"));
+            Constants.XSLT_PATH = path;
         }
     }
 }

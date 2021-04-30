@@ -52,8 +52,8 @@
     <Compile Include="Complements\Payments\PagosPagoImpuestosTraslado.cs" />
     <Compile Include="Helpers\CFDIHelper.cs" />
     <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\ICFDIHelper.cs" />
     <Compile Include="Helpers\Utf8StringWriter.cs" />
-    <Compile Include="Helpers\CFDIExtensions.cs" />
     <Compile Include="Invoicing\Base\Comprobante.cs" />
     <Compile Include="Invoicing\Base\ComprobanteAddenda.cs" />
     <Compile Include="Invoicing\Base\ComprobanteCfdiRelacionados.cs" />
@@ -74,7 +74,9 @@
     <Compile Include="Invoicing\Base\ComprobanteImpuestosTraslado.cs" />
     <Compile Include="Invoicing\Base\ComprobanteReceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IInvoiceService.cs" />
     <Compile Include="Services\InvoiceService.cs" />
+    <Compile Include="Services\IPaymentService.cs" />
     <Compile Include="Services\PaymentService.cs" />
     <Compile Include="Services\PayrollService.cs" />
   </ItemGroup>

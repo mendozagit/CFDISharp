@@ -10,7 +10,7 @@ using Org.BouncyCastle.Security;
 
 namespace CFDISharp.CoreLib.Helpers
 {
-    public class CFDIHelper
+    public class CFDIHelper : ICFDIHelper
     {
         private AsymmetricKeyParameter asymmetricKeyParameter;
         private RsaKeyParameters rsaKeyParameters;
@@ -31,7 +31,7 @@ namespace CFDISharp.CoreLib.Helpers
 
 
 
-        private void Initialize(string invoiceType)
+        public void Initialize(string invoiceType)
         {
             namespaces = new XmlSerializerNamespaces();
             InvoiceType = invoiceType;

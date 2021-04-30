@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace CFDISharp.CoreLib.Services
 {
-    public class PaymentService
+    public class PaymentService : IPaymentService
     {
         public Comprobante Comprobante;
         private List<ComprobanteCfdiRelacionadosCfdiRelacionado> cfdiRelacionados;
@@ -21,13 +21,13 @@ namespace CFDISharp.CoreLib.Services
         private XmlSerializerNamespaces xmlNameSpacePago;
         private XmlWriter xmlWriter;
         private XmlSerializer xmlSerializer;
-        private readonly int decimalesItem;
-        private readonly int decimalesHeader;
+        private int decimalesItem;
+        private int decimalesHeader;
 
-        public PaymentService(string tipoDeComprobante, string version, int decimalesItems = 2, int decimalesHeader = 0)
+
+        public void Initialize(string tipoDeComprobante = "P", string version = "3.3", int decimalesItem = 6, int decimalesHeader = 2)
         {
-
-            this.decimalesItem = decimalesItems;
+            this.decimalesItem = decimalesItem;
             this.decimalesHeader = decimalesHeader;
 
             conceptos = new List<ComprobanteConcepto>();
@@ -48,6 +48,7 @@ namespace CFDISharp.CoreLib.Services
             Comprobante.Complemento = new ComprobanteComplemento[1];
             Comprobante.Complemento[0] = new ComprobanteComplemento();
         }
+       
 
 
         private void AddConceptoStandard()

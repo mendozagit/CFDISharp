@@ -8,27 +8,33 @@ using System.Threading.Tasks;
 
 namespace CFDISharp.CoreLib.Services
 {
-    public class InvoiceService
+    public class InvoiceService : IInvoiceService
     {
-        public Comprobante Comprobante;
+
+        public Comprobante Comprobante { get; set; }
         private List<ComprobanteImpuestosTraslado> comprobanteTraslados;
         private List<ComprobanteImpuestosRetencion> comprobanteRetenciones;
         private List<ComprobanteCfdiRelacionadosCfdiRelacionado> cfdiRelacionados;
         private List<ComprobanteConcepto> conceptos;
         private ComprobanteConceptoImpuestosTraslado conceptoTraslado;
         private ComprobanteConceptoImpuestosRetencion conceptoRetencion;
-        private readonly int decimalesItem;
-        private readonly int decimalesHeader;
-        public InvoiceService(string tipoDeComprobante = "I", string version = "3.3", int decimalesConcepto = 6, int decimalesComprobante = 2)
+        private int decimalesItem;
+        private int decimalesHeader;
+
+        public void Initialize(string tipoDeComprobante = "I", string version = "3.3", int decimalesConcepto = 6, int decimalesComprobante = 2)
         {
-            this.decimalesItem = decimalesConcepto;
-            this.decimalesHeader = decimalesComprobante;
+            decimalesItem = decimalesConcepto;
+            decimalesHeader = decimalesComprobante;
             comprobanteTraslados = new List<ComprobanteImpuestosTraslado>();
             comprobanteRetenciones = new List<ComprobanteImpuestosRetencion>();
             conceptos = new List<ComprobanteConcepto>();
             cfdiRelacionados = new List<ComprobanteCfdiRelacionadosCfdiRelacionado>();
             Comprobante = new Comprobante { Version = version, TipoDeComprobante = tipoDeComprobante };
         }
+
+
+
+
 
         /// <summary>
         /// Angrega un cfdi relacioando al comprobante(usado cuando es nota de credito)

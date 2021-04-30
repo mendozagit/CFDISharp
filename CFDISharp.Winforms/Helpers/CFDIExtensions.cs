@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace CFDISharp.CoreLib.Helpers
+namespace CFDISharp.Winforms.Helpers
 {
     public static class CFDIExtensions
     {
@@ -34,10 +34,15 @@ namespace CFDISharp.CoreLib.Helpers
             return Convert.ToBase64String(plainTextBytes);
         }
 
-        public static string DecodeFromBase64(string base64EncodedData)
+        public static string DecodeFromBase64(this string base64EncodedData)
         {
             var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
             return Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+
+        public static int WordCount(this String str)
+        {
+            return str.Split(new char[] { ' ', '.', '?' }, StringSplitOptions.RemoveEmptyEntries).Length;
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CFDISharp.Winforms.Helpers
 {
-    public class WSHelperTest
+    public class WSHelperTest : IWSHelperTest
     {
         private Cancelation cancelationRequest;
         private Stamp transmitRequest;

@@ -21,7 +21,12 @@ namespace CFDISharp.Winforms
             Startup.Configure();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                var form = scope.Resolve<Form1>();
+                Application.Run(form);
+            }
+
         }
     }
 }
