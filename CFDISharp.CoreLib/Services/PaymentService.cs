@@ -9,7 +9,7 @@ namespace CFDISharp.CoreLib.Services
 {
     public class PaymentService : IPaymentService
     {
-        public Comprobante Comprobante;
+        public Comprobante Comprobante { get; set; }
         private List<ComprobanteCfdiRelacionadosCfdiRelacionado> cfdiRelacionados;
         private List<ComprobanteConcepto> conceptos;
         private List<PagosPagoDoctoRelacionado> doctosRelacionados;
@@ -48,7 +48,7 @@ namespace CFDISharp.CoreLib.Services
             Comprobante.Complemento = new ComprobanteComplemento[1];
             Comprobante.Complemento[0] = new ComprobanteComplemento();
         }
-       
+
 
 
         private void AddConceptoStandard()

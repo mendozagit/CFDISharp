@@ -1,10 +1,12 @@
-﻿using CFDISharp.CoreLib.Helpers;
+﻿using CFDISharp.CoreLib.Complements.Payments;
+using CFDISharp.CoreLib.Helpers;
 using CFDISharp.CoreLib.Invoicing.Base;
 using CFDISharp.CoreLib.Services;
 using CFDISharp.Winforms.Helpers;
 using CFDISharp.Winforms.Helpers.SellosHelper;
 using CFDISharp.Winforms.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -200,10 +202,8 @@ namespace CFDISharp.Winforms
                 invoiceService.Comprobante.NoCertificado = mxCertificate.CertificateNumber();
                 invoiceService.Comprobante.Certificado = certificatedb.Base64File;
                 invoiceService.Comprobante.Moneda = "MXN";
-                invoiceService.Comprobante.TipoDeComprobante = "I";
                 invoiceService.Comprobante.LugarExpedicion = "38020";
-                invoiceService.Comprobante.TipoDeComprobante = "I";
-                invoiceService.Comprobante.Serie = "F";
+                invoiceService.Comprobante.Serie = "P";
                 invoiceService.Comprobante.FormaPago = "01";
                 invoiceService.Comprobante.MetodoPago = "PUE";
 
@@ -298,12 +298,192 @@ namespace CFDISharp.Winforms
 
         private void BtnCompInd_Click(object sender, EventArgs e)
         {
+            ComplementoIndividual();
+        }
+        private void ComplementoIndividual()
+        {
+            try
+            {
 
+
+                cFDIHelper.Initialize("P");
+                paymentService.Initialize("P");
+
+
+                var certificatedb = context.SatFiles.FirstOrDefault(x => x.Type.ToLower().Equals("cer"));
+                var privateKeydb = context.SatFiles.FirstOrDefault(x => x.Type.ToLower().Equals("key"));
+                var passworddb = context.SatFiles.FirstOrDefault(x => x.Type.ToLower().Equals("pass"));
+
+
+                var mxCertificate = new MxCertificate(certificatedb);
+                var mxPrivateKey = new MxPrivateKey(privateKeydb);
+                var password = cFDIHelper.DecodeFromBase64(passworddb.Base64File);
+
+
+                cFDIHelper.CertificateBytes = mxCertificate.CertificateBytes();
+                cFDIHelper.PrivateKeyBytes = mxPrivateKey.PrivateKeyBytes();
+                cFDIHelper.Password = password;
+                cFDIHelper.XSLTPath = Constants.XSLT_PATH;
+
+
+
+
+                paymentService.Comprobante.Sello = "MiCadenaDeSello";
+                paymentService.Comprobante.NoCertificado = mxCertificate.CertificateNumber();
+                paymentService.Comprobante.Certificado = certificatedb.Base64File;
+                paymentService.Comprobante.LugarExpedicion = "38020";
+                paymentService.Comprobante.Serie = "P";
+
+
+
+                //Emisor
+                paymentService.AddEmisor("XIA190128J61", "XENON INDUSTRIAL ARTICLES S DE CV", "601");
+
+                //Receptor
+                paymentService.AddReceptor("MEJJ940824C61", "JESUS MENDOZA JUAREZ", "P01");
+
+
+                var docs = new List<PagosPagoDoctoRelacionado>();
+
+                var doc1 = new PagosPagoDoctoRelacionado();
+                doc1.IdDocumento = "970e4f32-0fe0-11e7-93ae-92361f002671";
+                doc1.ImpPagado = 5000;
+                doc1.ImpSaldoAnt = 10000;
+                doc1.ImpSaldoInsoluto = 5000;
+                doc1.MetodoDePagoDR = "PPD";
+                doc1.MonedaDR = "MXN";
+                doc1.NumParcialidad = "1";
+                docs.Add(doc1);
+
+
+                paymentService.AddPago(docs, DateTime.Now, "06", 10000, "MXN", 1);
+                paymentService.Comprobante = paymentService.CalculaComprobante();
+
+                //0 Set payment element to xml
+                var xmldocument = paymentService.SetDocumentElement();
+
+                //1
+                var xmlStringFile = cFDIHelper.SerializeToXmlStringFile(paymentService.Comprobante);
+
+                //2
+                var cadenaOriginal = cFDIHelper.GetOriginalStringByXmlStringFile(xmlStringFile);
+                paymentService.Comprobante.Sello = cFDIHelper.Sign(cadenaOriginal);
+
+                //3
+                xmlStringFile = cFDIHelper.SerializeToXmlStringFile(paymentService.Comprobante);
+
+                File.WriteAllText("IndividualPaymentInvoice.XML", xmlStringFile);
+
+                var response = wsHelperTest.Transmit(xmlStringFile);
+                MessageBox.Show(response.Status);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
         private void BtnCompGrup_Click(object sender, EventArgs e)
         {
-
+            ComplementoGlobal();
         }
+        private void ComplementoGlobal()
+        {
+            try
+            {
+
+
+                cFDIHelper.Initialize("P");
+                paymentService.Initialize("P");
+
+
+                var certificatedb = context.SatFiles.FirstOrDefault(x => x.Type.ToLower().Equals("cer"));
+                var privateKeydb = context.SatFiles.FirstOrDefault(x => x.Type.ToLower().Equals("key"));
+                var passworddb = context.SatFiles.FirstOrDefault(x => x.Type.ToLower().Equals("pass"));
+
+
+                var mxCertificate = new MxCertificate(certificatedb);
+                var mxPrivateKey = new MxPrivateKey(privateKeydb);
+                var password = cFDIHelper.DecodeFromBase64(passworddb.Base64File);
+
+
+                cFDIHelper.CertificateBytes = mxCertificate.CertificateBytes();
+                cFDIHelper.PrivateKeyBytes = mxPrivateKey.PrivateKeyBytes();
+                cFDIHelper.Password = password;
+                cFDIHelper.XSLTPath = Constants.XSLT_PATH;
+
+
+
+
+                paymentService.Comprobante.Sello = "MiCadenaDeSello";
+                paymentService.Comprobante.NoCertificado = mxCertificate.CertificateNumber();
+                paymentService.Comprobante.Certificado = certificatedb.Base64File;
+                paymentService.Comprobante.LugarExpedicion = "38020";
+                paymentService.Comprobante.Serie = "P";
+
+
+
+                //Emisor
+                paymentService.AddEmisor("XIA190128J61", "XENON INDUSTRIAL ARTICLES S DE CV", "601");
+
+                //Receptor
+                paymentService.AddReceptor("MEJJ940824C61", "JESUS MENDOZA JUAREZ", "P01");
+
+
+                var docs = new List<PagosPagoDoctoRelacionado>();
+
+
+                var doc1 = new PagosPagoDoctoRelacionado();
+                doc1.IdDocumento = "970e4f32-0fe0-11e7-93ae-92361f002671";
+                doc1.ImpPagado = 5000;
+                doc1.ImpSaldoAnt = 10000;
+                doc1.ImpSaldoInsoluto = 5000;
+                doc1.MetodoDePagoDR = "PPD";
+                doc1.MonedaDR = "MXN";
+                doc1.NumParcialidad = "1";
+
+                var doc2 = new PagosPagoDoctoRelacionado();
+                doc2.IdDocumento = "970e5496-0fe0-11e7-93ae-92361f002672";
+                doc2.ImpPagado = 250.00m;
+                doc2.ImpSaldoAnt = 250.00m;
+                doc2.ImpSaldoInsoluto = 0.00m;
+                doc2.MetodoDePagoDR = "PPD";
+                doc2.MonedaDR = "USD";
+                doc2.NumParcialidad = "2";
+                doc2.TipoCambioDR = 20.00m;
+
+                docs.Add(doc1);
+                docs.Add(doc2);
+
+                paymentService.AddPago(docs, DateTime.Now, "06", 10000, "MXN", 1);
+
+                paymentService.Comprobante = paymentService.CalculaComprobante();
+
+                //0 Set payment element to xml
+                var xmldocument = paymentService.SetDocumentElement();
+
+                //1
+                var xmlStringFile = cFDIHelper.SerializeToXmlStringFile(paymentService.Comprobante);
+
+                //2
+                var cadenaOriginal = cFDIHelper.GetOriginalStringByXmlStringFile(xmlStringFile);
+                paymentService.Comprobante.Sello = cFDIHelper.Sign(cadenaOriginal);
+
+                //3
+                xmlStringFile = cFDIHelper.SerializeToXmlStringFile(paymentService.Comprobante);
+
+                File.WriteAllText("GlobalPaymentInvoice.XML", xmlStringFile);
+
+                var response = wsHelperTest.Transmit(xmlStringFile);
+                MessageBox.Show(response.Status);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
     }
 }
