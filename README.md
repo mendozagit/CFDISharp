@@ -18,8 +18,7 @@ http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20_version3-3.htm
 - Contabilidad electrónica [catálogo de cuentas balanza de comprobación pólizas y auxiliares] (Próximamente)
 
 # [Notas]
-*La idea es integrando muchos proveedores de certificación autorizados (PACs), sin embargo, en este momento temas de tiempo solo integraré uno. (uno de los mejores desde mi perspectiva ) 
-https://developers.sw.com.mx/
+*La idea es integrando muchos proveedores de certificación autorizados (PACs), sin embargo, en este momento temas de tiempo solo integraré uno.
 
 *Si requiere algún tipo de ayuda puede localizarme en el siguiente correo: mendoza.git@gmail.com  
 
